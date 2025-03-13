@@ -1,5 +1,7 @@
 # Stage 1: Build environment and Composer dependencies
 FROM crpi-abrasomrm9oq6os4.cn-shanghai.personal.cr.aliyuncs.com/singlab/php:8.3-fpm AS builder
+ARG APP_VERSION=1.0.0
+LABEL version=${APP_VERSION}
 
 # Install system dependencies and PHP extensions required for Laravel + MySQL/PostgreSQL support
 # Some dependencies are required for PHP extensions only in the build stage
@@ -131,6 +133,8 @@ CMD ["php-fpm"]
 
 # Stage 3: Development image
 FROM production AS development
+ARG APP_VERSION=1.0.0
+LABEL version=${APP_VERSION}
 
 # Use ARG to define environment variables passed from the Docker build command or Docker Compose.
 ARG XDEBUG_ENABLED=true
