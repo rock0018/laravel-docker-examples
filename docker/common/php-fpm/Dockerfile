@@ -4,7 +4,7 @@ FROM php:8.3-fpm AS builder
 # Install system dependencies and PHP extensions required for Laravel + MySQL/PostgreSQL support
 # Some dependencies are required for PHP extensions only in the build stage
 # We don't need to install Node.js or build assets, as it was done in the Nginx image
-RUN mv /etc/apt/sources.list.d/debian.sources etc/apt/debian.sources_bak  && echo "deb http://mirrors.aliyun.com/debian/ bookworm main non-free-firmware contrib" > /etc/apt/sources.list && \
+RUN mv /etc/apt/sources.list.d/debian.sources /etc/apt/debian.sources_bak  && echo "deb http://mirrors.aliyun.com/debian/ bookworm main non-free-firmware contrib" > /etc/apt/sources.list && \
     echo "deb-src http://mirrors.aliyun.com/debian/ bookworm main non-free-firmware contrib" >> /etc/apt/sources.list && \
     echo "deb http://mirrors.aliyun.com/debian-security/ bookworm-security main" >> /etc/apt/sources.list && \
     echo "deb-src http://mirrors.aliyun.com/debian-security/ bookworm-security main" >> /etc/apt/sources.list && \
@@ -56,7 +56,7 @@ WORKDIR /var/www
 COPY . /var/www
 
 # Install Composer and dependencies
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+RUN cat composer.php | php -- --install-dir=/usr/local/bin --filename=composer \
     && composer install --no-dev --optimize-autoloader --no-interaction --no-progress --prefer-dist
 
 
