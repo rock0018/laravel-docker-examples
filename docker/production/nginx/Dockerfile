@@ -1,5 +1,7 @@
 # Stage 1: Build assets
 FROM  crpi-abrasomrm9oq6os4.cn-shanghai.personal.cr.aliyuncs.com/singlab/debian AS builder
+ARG APP_VERSION=1.0.0
+LABEL version=${APP_VERSION}
 
 # Install Node.js and build tools
 RUN mv /etc/apt/sources.list.d/debian.sources /etc/apt/debian.sources_bak  && echo "deb http://mirrors.aliyun.com/debian/ bookworm main non-free-firmware contrib" > /etc/apt/sources.list && \
@@ -25,7 +27,8 @@ RUN npm install && npm run build
 
 # Stage 2: Nginx production image
 FROM  crpi-abrasomrm9oq6os4.cn-shanghai.personal.cr.aliyuncs.com/singlab/nginx:alpine
-
+ARG APP_VERSION=1.0.0
+LABEL version=${APP_VERSION}
 # Copy custom Nginx configuration
 # -----------------------------------------------------------
 # Replace the default Nginx configuration with our custom one
