@@ -2,7 +2,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: ./docker/production/nginx/Dockerfileargs:
+      dockerfile: ./docker/production/nginx/Dockerfile
       args:
         - APP_VERSION=${APP_VERSION:-1.0.0}
       
