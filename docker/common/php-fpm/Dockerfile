@@ -16,6 +16,7 @@ RUN mv /etc/apt/sources.list.d/debian.sources /etc/apt/debian.sources_bak  && ec
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     unzip \
+    libpng-dev \
     libpq-dev \
     libonig-dev \
     libssl-dev \
