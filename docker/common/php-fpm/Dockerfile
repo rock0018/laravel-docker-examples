@@ -1,5 +1,5 @@
 # Stage 1: Build environment and Composer dependencies
-FROM php:8.3-fpm AS builder
+FROM crpi-abrasomrm9oq6os4.cn-shanghai.personal.cr.aliyuncs.com/singlab/php:8.3-fpm AS builder
 
 # Install system dependencies and PHP extensions required for Laravel + MySQL/PostgreSQL support
 # Some dependencies are required for PHP extensions only in the build stage
@@ -61,7 +61,7 @@ RUN cat composer.php | php -- --install-dir=/usr/local/bin --filename=composer \
 
 
 # Stage 2: Production environment
-FROM php:8.3-fpm AS production
+FROM crpi-abrasomrm9oq6os4.cn-shanghai.personal.cr.aliyuncs.com/singlab/php:8.3-fpm AS production
 
 # Install only runtime libraries needed in production
 # libfcgi-bin and procps are required for the php-fpm-healthcheck script
