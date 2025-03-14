@@ -31,7 +31,7 @@ RUN mv /etc/apt/sources.list.d/debian.sources /etc/apt/debian.sources_bak && \
     apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # 配置 PHP 和 PHP-FPM
-COPY docker/common/php-fpm/php-fpm-healthcheck /usr/local/bin/php-fpm-healthcheck
+COPY php-fpm-healthcheck /usr/local/bin/php-fpm-healthcheck
 COPY docker/production/php-fpm/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/php-fpm-healthcheck /usr/local/bin/entrypoint.sh && \
     mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" && \
