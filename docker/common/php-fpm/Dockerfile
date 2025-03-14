@@ -18,7 +18,6 @@ RUN mv /etc/apt/sources.list.d/debian.sources /etc/apt/debian.sources_bak && \
 WORKDIR /var/www
 COPY . .
 RUN  php composer.php --install-dir=/usr/local/bin --filename=composer && \
-    composer config -g repo.packagist composer https://packages.aliyun.com/composer && \
     composer update --lock && composer install --no-dev --optimize-autoloader --no-interaction --no-progress --prefer-dist
 
 FROM crpi-abrasomrm9oq6os4.cn-shanghai.personal.cr.aliyuncs.com/singlab/php:8.3-fpm AS production
