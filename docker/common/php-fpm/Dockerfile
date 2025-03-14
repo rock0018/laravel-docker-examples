@@ -80,3 +80,6 @@ COPY docker/development/php-fpm/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
 USER www-data
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+EXPOSE 9000
+CMD ["php-fpm"]
