@@ -4,6 +4,8 @@
             "type": "composer",
             "url": "https://mirrors.aliyun.com/composer/"
             "canonical": false
+        },{
+            "packagist.org": false
         }
     ],
     "name": "laravel/laravel",
@@ -16,6 +18,7 @@
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9"
         "fruitcake/php-cors": "1.3.0"
+        "graham-campbell/result-type": "1.1.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -65,7 +68,8 @@
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "composer/package-versions-deprecated": true
         }
     },
     "minimum-stability": "stable",
