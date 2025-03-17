@@ -1,4 +1,18 @@
 {
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.packagist.org",
+            "canonical": true
+        },
+        {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/",
+            "canonical": false
+        },{
+            "packagist.org": false
+        }
+    ],
     "name": "laravel/laravel",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
